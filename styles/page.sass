@@ -1,0 +1,155 @@
+$bg-color: #fafafa
+$text-color: #30343f
+$accent-color: #616A81
+
+#waypoint
+    display: block
+    height: 1px
+    font-size: 1px
+
+#page-wrapper
+    display: flex
+    height: 100vh
+
+#sidebar
+    flex: 1
+    display: inline-block
+    background-color: $text-color
+    color: $bg-color
+    height: 100%
+    transition: 0.3s
+    padding-top: 12pt
+    padding-left: 8pt
+    overflow: hidden
+    transition: width 0.2s
+    overflow: hidden
+    #sidebar-list
+        margin-top: 11pt
+        margin-left: 7pt
+        font-size: 12pt
+        line-height: 1.8
+        b
+            margin-left: -3pt
+            font-weight: 400
+            line-height: 2
+            font-size: 14pt
+        a
+            text-decoration: none
+            color: $bg-color
+            transform: 0.3s
+        #link-list
+            padding-left: 10pt
+        a:hover
+            text-decoration: underline
+    #menu-icon
+        display: inline-block
+        position: relative
+        width: 28pt
+        height: 24pt
+        transition: .3s ease-in-out
+        cursor: pointer
+    #menu-icon span
+        display: block
+        position: absolute
+        left: 0
+        height: 3.3pt
+        border-radius: 1pt
+        width: 100%
+        background-color: $bg-color
+        transition: .2s ease-in-out
+        transform: rotate(0deg)
+    #menu-icon.hamburger span:nth-child(1)
+        top: 0
+    #menu-icon.hamburger span:nth-child(2)
+        top: 9pt
+    #menu-icon.hamburger span:nth-child(3)
+        top: 18pt
+    #menu-icon.hamburger span:nth-child(4)
+        top: 9pt
+    
+    #menu-icon.cross span:nth-child(1)
+        opacity: 0
+        top: 0
+    #menu-icon.cross span:nth-child(2)
+        top: 9pt
+        transform: rotate(45deg)
+    #menu-icon.cross span:nth-child(3)
+        opacity: 0
+        top: 18pt
+    #menu-icon.cross span:nth-child(4)
+        top: 9pt
+        transform: rotate(-45deg)
+
+#sidebar.visible
+    width: 20vw
+    #sidebar-list
+        display: block
+#sidebar.compact
+    width: 44pt
+    #sidebar-list
+        display: none
+
+#content-wrapper
+    display: inline-block
+    padding-top: 12pt
+    height: 100%
+    transition: width 0.2s
+    overflow: scroll
+    #content
+        margin-left: auto
+        margin-right: auto
+        text-align: left
+        width: 80%
+        img
+            width: 100%
+        img:hover
+            width: 100%
+        blockquote
+            display: none
+        a
+            color: $text-color
+            text-decoration: underline
+#content-wrapper.small
+    width: 80vw
+#content-wrapper.full
+    width: calc( 100% - 44pt )
+
+#stack-bar
+    height: 26pt
+    #image-wrapper
+        display: inline-block
+        margin-right: 8pt
+
+#expandable-screenshot
+    width: 100%
+    height: 100pt
+    transition: 0.3s
+    overflow: hidden
+    #image-wrapper
+        position: relative
+        background-size: cover
+        background-repeat: no-repeat
+        height: 90%
+    #expand-button
+        position: absolute
+        bottom: 0
+        height: 13pt
+        width: 100%
+        background-color: $accent-color
+        color: $bg-color
+        #text
+            font-size: 12pt
+            width: 100%
+            text-align: center
+        #icon
+            display: inline-block
+            height: 12pt
+            width: 12pt
+            transition: 0.3s
+        .expanded #icon
+            transform: rotate(0deg)
+        .compact #icon
+            transform: rotate(180deg)
+
+#expandable-screenshot.expanded
+    height: 380pt

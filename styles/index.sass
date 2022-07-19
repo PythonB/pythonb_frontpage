@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap')
+    
+$bg-color: #fafafa
+$text-color: #30343f
+$accent-color: #7f9172
+
+body
+    font-family: 'Roboto', sans-serif
+    color: $text-color
+    font-weight: 300
+    margin: 0
+    padding: 0
+.mobile-only
+        display: none
+
+#fullmenu-view
+    height: 100%
+    width: 100%
+    text-align: center
+    padding-top: 22vh
+    h1
+        display: inline-block
+        font-weight: 400
+        font-size: 64pt
+        margin-bottom: 4vh
+    #buttons
+        display: block
+        div
+            display: inline
+        button
+            appearance: none
+            display: inline-block
+            font-weight: 400
+            font-size: 16pt
+            background-color: $bg-color
+            border: 2.5pt solid $text-color
+            width: 144pt
+            height: 48pt
+            margin: 12pt
+            transition: 0.3s
+        button:hover
+            background-color: $text-color
+            border: 2.5pt solid $bg-color
+            color: $bg-color
+    #footer
+        position: fixed
+        bottom: 15pt
+        width: 100%
+        img
+            margin: auto
+            height: 24pt
+            width: auto
+
+@media (max-width:480px)
+    .mobile-only
+            display: static
+    #fullmenu-view
+        width: 100%
+        text-align: center
+        padding-top: 25vh
+        h1
+            display: inline-block
+            font-size: 48pt
+        #buttons
+            div
+                display: block
+            button
+                appearance: none
+                display: inline-block
+                font-weight: 400
+                font-size: 14pt
+                background-color: $bg-color
+                border: 2.5pt solid $text-color
+                width: 128pt
+                height: 36pt
+                margin: 12pt
+
+    @media (max-height:736px)
+        #fullmenu-view
+            padding-top: 5vh
+            h1
+                font-size: 36pt
+
+#markdown
+    font-family: 'Roboto', sans-serif
+    color: $text-color
+    font-weight: 300
+    margin: 0
+    padding: 0
+    h1, h2, h3, h4, h5, h6
+        font-weight: 400
+        margin: 5pt
+        display: inline
+    h1
+        font-size: 24pt
+    h2
+        font-size: 21pt
+    h3
+        font-size: 18pt
+    h4
+        font-size: 15pt
+    h5
+        font-size: 12pt
+    h6
+        font-size: 9pt
+    
