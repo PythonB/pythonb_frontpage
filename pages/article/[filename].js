@@ -37,7 +37,7 @@ export default function Article({data}){
                     <span/>
                 </div><br/>
                 <div id="sidebar-list">
-                    <a href="/article/about"><b>Home</b></a><br/>
+                    <a href="/"><b>Home</b></a><br/>
                     <a href="/article/about"><b>About me</b></a><br/>
                     <a href="/article/projects"><b>Projects</b></a><br/>
                     <div id="link-list">
