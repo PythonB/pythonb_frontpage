@@ -10,6 +10,7 @@ $accent-color: #616A81
 #page-wrapper
     display: flex
     height: 100vh
+    overflow: hidden
 
 #sidebar
     flex: 1
@@ -41,53 +42,15 @@ $accent-color: #616A81
             padding-left: 10pt
         a:hover
             text-decoration: underline
-    #menu-icon
-        display: inline-block
-        position: relative
-        width: 28pt
-        height: 24pt
-        transition: .3s ease-in-out
-        cursor: pointer
-    #menu-icon span
-        display: block
-        position: absolute
-        left: 0
-        height: 3.3pt
-        border-radius: 1pt
-        width: 100%
-        background-color: $bg-color
-        transition: .2s ease-in-out
-        transform: rotate(0deg)
-    #menu-icon.hamburger span:nth-child(1)
-        top: 0
-    #menu-icon.hamburger span:nth-child(2)
-        top: 9pt
-    #menu-icon.hamburger span:nth-child(3)
-        top: 18pt
-    #menu-icon.hamburger span:nth-child(4)
-        top: 9pt
-    
-    #menu-icon.cross span:nth-child(1)
-        opacity: 0
-        top: 0
-    #menu-icon.cross span:nth-child(2)
-        top: 9pt
-        transform: rotate(45deg)
-    #menu-icon.cross span:nth-child(3)
-        opacity: 0
-        top: 18pt
-    #menu-icon.cross span:nth-child(4)
-        top: 9pt
-        transform: rotate(-45deg)
 
-#sidebar.visible
+#sidebar.stateDefault
     width: 20vw
     #sidebar-list
-        display: block
-#sidebar.compact
+        display: none
+#sidebar.statePressed
     width: 44pt
     #sidebar-list
-        display: none
+        display: block
 
 #content-wrapper
     display: inline-block
@@ -109,9 +72,9 @@ $accent-color: #616A81
         a
             color: $text-color
             text-decoration: underline
-#content-wrapper.small
+#content-wrapper.stateDefault
     width: 80vw
-#content-wrapper.full
+#content-wrapper.statePressed
     width: calc( 100% - 44pt )
 
 #stack-bar
@@ -148,8 +111,125 @@ $accent-color: #616A81
             transition: 0.3s
         .expanded #icon
             transform: rotate(0deg)
-        .compact #icon
+        .statePressed #icon
             transform: rotate(180deg)
 
 #expandable-screenshot.expanded
     height: 380pt
+
+
+@media (max-width:480px)
+    #page-wrapper
+        display: block
+        width: 100vw
+    #sidebar
+        display: block
+        height: 32pt
+        width: 100%
+        transition: height 0.2s
+        #sidebar-list
+            display: none
+
+    #sidebar.stateDefault
+        height: 224pt
+        width: 100%
+        #sidebar-list
+            display: block
+    #sidebar.statePressed
+        height: 32pt
+        width: 100%
+        #sidebar-list
+            display: none
+    #content-wrapper.stateDefault
+        height: calc( 100% - 32pt )
+        width: 100%
+    #content-wrapper.statePressed
+        height: calc( 100% - 224pt )
+        width: 100%
+    #content-wrapper
+        display: block
+        width: 100%
+        transition: height  0.2s
+        #content
+            padding-bottom: 32pt
+
+@media (min-width: 481px)
+    #menu-icon
+        display: inline-block
+        position: relative
+        width: 28pt
+        height: 24pt
+        transition: .3s ease-in-out
+        cursor: pointer
+    #menu-icon span
+        display: block
+        position: absolute
+        left: 0
+        height: 3.3pt
+        border-radius: 1pt
+        width: 100%
+        background-color: $bg-color
+        transition: .2s ease-in-out
+        transform: rotate(0deg)
+    #menu-icon.stateDefault span:nth-child(1)
+        top: 0
+    #menu-icon.stateDefault span:nth-child(2)
+        top: 9pt
+    #menu-icon.stateDefault span:nth-child(3)
+        top: 18pt
+    #menu-icon.stateDefault span:nth-child(4)
+        top: 9pt
+    
+    #menu-icon.statePressed span:nth-child(1)
+        opacity: 0
+        top: 0
+    #menu-icon.statePressed span:nth-child(2)
+        top: 9pt
+        transform: rotate(45deg)
+    #menu-icon.statePressed span:nth-child(3)
+        opacity: 0
+        top: 18pt
+    #menu-icon.statePressed span:nth-child(4)
+        top: 9pt
+        transform: rotate(-45deg)
+
+
+@media (max-width: 480px)
+    #menu-icon
+        display: inline-block
+        position: relative
+        width: 28pt
+        height: 24pt
+        transition: .3s ease-in-out
+        cursor: pointer
+    #menu-icon span
+        display: block
+        position: absolute
+        left: 0
+        height: 3.3pt
+        border-radius: 1pt
+        width: 100%
+        background-color: $bg-color
+        transition: .2s ease-in-out
+        transform: rotate(0deg)
+    #menu-icon.statePressed span:nth-child(1)
+        top: 0
+    #menu-icon.statePressed span:nth-child(2)
+        top: 9pt
+    #menu-icon.statePressed span:nth-child(3)
+        top: 18pt
+    #menu-icon.statePressed span:nth-child(4)
+        top: 9pt
+    
+    #menu-icon.stateDefault span:nth-child(1)
+        opacity: 0
+        top: 0
+    #menu-icon.stateDefault span:nth-child(2)
+        top: 9pt
+        transform: rotate(45deg)
+    #menu-icon.stateDefault span:nth-child(3)
+        opacity: 0
+        top: 18pt
+    #menu-icon.stateDefault span:nth-child(4)
+        top: 9pt
+        transform: rotate(-45deg)

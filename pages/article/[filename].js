@@ -5,21 +5,18 @@ import { MDXRemote } from 'next-mdx-remote'
 import {Waypoint, StackBar, Screenshot} from "../../mdx_components.js"
 
 var state_sidebar = {active: true}
-function toggleIDsClass(id, classToRemove, classToAdd){
-    document.getElementById("menu-icon").classList.remove(classToAdd);
-    document.getElementById("menu-icon").classList.add(classToRemove);
-}
+
 function toggleClass() {
     const currentState = state_sidebar.active;
     state_sidebar.active = !currentState;
-    document.getElementById("sidebar").classList.remove(currentState ? "visible" : "compact");
-    document.getElementById("sidebar").classList.add(state_sidebar.active ? "sidebar" : "compact");
+    document.getElementById("sidebar").classList.remove(currentState ? "statePressed" : "stateDefault");
+    document.getElementById("sidebar").classList.add(state_sidebar.active ? "statePressed" : "stateDefault");
 
-    document.getElementById("menu-icon").classList.remove(currentState ? "cross" : "hamburger");
-    document.getElementById("menu-icon").classList.add(state_sidebar.active ? "cross" : "hamburger");
+    document.getElementById("menu-icon").classList.remove(currentState ? "statePressed" : "stateDefault");
+    document.getElementById("menu-icon").classList.add(state_sidebar.active ? "statePressed" : "stateDefault");
 
-    document.getElementById("content-wrapper").classList.remove(currentState ? "small" : "full");
-    document.getElementById("content-wrapper").classList.add(state_sidebar.active ? "small" : "full");
+    document.getElementById("content-wrapper").classList.remove(currentState ? "stateDefault" : "statePressed");
+    document.getElementById("content-wrapper").classList.add(state_sidebar.active ? "stateDefault" : "statePressed");
 };
 
 const components = {
@@ -32,14 +29,15 @@ export default function Article({data}){
     const router = useRouter();
     return (
         <div id="page-wrapper">
-            <div id="sidebar" className={state_sidebar.active ? "visible" : "compact"}>
-                <div id="menu-icon" className={state_sidebar.active ? "cross" : "hamburger"} onClick={toggleClass}>
+            <div id="sidebar" className={state_sidebar.active ? "statePressed" : "stateDefault"}>
+                <div id="menu-icon" className={state_sidebar.active ? "statePressed" : "stateDefault"} onClick={toggleClass}>
                     <span/>
                     <span/>
                     <span/>
                     <span/>
                 </div><br/>
                 <div id="sidebar-list">
+                    <a href="/article/about"><b>Home</b></a><br/>
                     <a href="/article/about"><b>About me</b></a><br/>
                     <a href="/article/projects"><b>Projects</b></a><br/>
                     <div id="link-list">
@@ -50,7 +48,8 @@ export default function Article({data}){
                     <a href="/article/skills"><b>Skills</b></a>
                 </div>
             </div>
-            <div id="content-wrapper" className={state_sidebar.active ? "small" : "full"}>
+            <div className="mobile-only"><br/></div>
+            <div id="content-wrapper" className={state_sidebar.active ? "stateDefault" : "statePressed"}>
                 <div id="content">
                     <MDXRemote {...data} components={components} />
                 </div>
