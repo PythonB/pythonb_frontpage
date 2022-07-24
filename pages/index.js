@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import LinkedInLogo from "../public/images/LI-Logo.png"
+import GithubLogo from "../public/images/GH-Logo.png"
 
 const Index = () => {
 	return (
@@ -25,7 +26,8 @@ const Index = () => {
                         </Link>
                 </div>
                 <div id="footer">
-                    <Link href="https://www.linkedin.com/in/bogdan-kolendovskyy-586ab5186/"><Image src={LinkedInLogo} height="34pt" width="138pt"/></Link>
+                    <div id="link"><Link href="https://github.com/PythonB"><Image src={GithubLogo} height="34pt" width="138pt"/></Link></div>
+                    <div id="link"><Link href="https://www.linkedin.com/in/bogdan-kolendovskyy-586ab5186/"><Image src={LinkedInLogo} height="34pt" width="138pt"/></Link></div>
                 </div>
             </div>
         </div>
