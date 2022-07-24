@@ -29,6 +29,7 @@ export default function Article({data}){
     const router = useRouter();
     return (
         <div id="page-wrapper">
+            <title>Python_B's personal page</title>
             <div id="sidebar" className={state_sidebar.active ? "statePressed" : "stateDefault"}>
                 <div id="menu-icon" className={state_sidebar.active ? "statePressed" : "stateDefault"} onClick={toggleClass}>
                     <span/>
